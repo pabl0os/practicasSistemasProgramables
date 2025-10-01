@@ -181,7 +181,7 @@ oled.fill(0)
 
 # ESP32
 # ECHO — 5.6 kΩ —●— 10 kΩ — GND
-sensor = HCSR04(trigger_pin=12, echo_pin=13, echo_timeout_us=10000)
+sensor = HCSR04(trigger_pin=2, echo_pin=15, echo_timeout_us=10000)
 
 # ESP8266
 # sensor = HCSR04(trigger_pin=12, echo_pin=14, echo_timeout_us=10000)
@@ -196,7 +196,7 @@ def mi_interrupcion(pin):
     sleep(5)
     
 #pir 
-pir_pin = machine.Pin(33, machine.Pin.IN)
+pir_pin = machine.Pin(19, machine.Pin.IN)
 pir_pin.irq(trigger=machine.Pin.IRQ_RISING, handler=mi_interrupcion)
 
 
