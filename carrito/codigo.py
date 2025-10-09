@@ -8,10 +8,10 @@ import framebuf
 
 # ==== CONFIGURACIÓN DE PINES ====
 # Cambia los números según tu conexión
-IN1 = Pin(27, Pin.OUT)   # Motor izquierdo
-IN2 = Pin(26, Pin.OUT)
-IN3 = Pin(33, Pin.OUT)   # Motor derecho
-IN4 = Pin(32, Pin.OUT)
+IN1 = Pin(2, Pin.OUT)   # Motor izquierdo
+IN2 = Pin(4, Pin.OUT)
+IN3 = Pin(5, Pin.OUT)   # Motor derecho
+IN4 = Pin(18, Pin.OUT)
 
 # ==== FUNCIONES DE MOVIMIENTO ====
 
@@ -33,18 +33,18 @@ def atras():
 
 def izquierda():
     """Gira el carrito a la izquierda."""
-    IN1.value(0)
-    IN2.value(1)
-    IN3.value(1)
-    IN4.value(0)
-    print("↩️ Girando a la izquierda")
-
-def derecha():
-    """Gira el carrito a la derecha."""
     IN1.value(1)
     IN2.value(0)
     IN3.value(0)
     IN4.value(1)
+    print("↩️ Girando a la izquierda")
+
+def derecha():
+    """Gira el carrito a la derecha."""
+    IN1.value(0)
+    IN2.value(1)
+    IN3.value(1)
+    IN4.value(0)
     print("↪️ Girando a la derecha")
 
 def detener():
@@ -116,3 +116,4 @@ ir_sensor = NEC_16(Pin(15, Pin.IN), callback=ejecutarOpcion)
 # Loop infinito para mantener la ejecución
 while True:
     time.sleep(1)
+
